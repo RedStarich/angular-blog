@@ -1,0 +1,128 @@
+/* Navigation bar styles */
+.navbar {
+    background-color: white;
+    border-color: #e5e7eb;
+    padding: 0.625rem 1rem;
+    min-width: 500px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background-color: #b91c1c;
+    }
+}
+
+/* Navbar container */
+.navbar-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+/* Logo section */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 2.25rem;
+    margin-right: 0.75rem;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+/* Menu container */
+.menu-container {
+    display: none;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .menu-container {
+        display: block;
+        width: auto;
+    }
+}
+
+/* Navigation list */
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 1024px) {
+    .nav-list {
+        flex-direction: row;
+        margin-top: 0;
+        gap: 2rem;
+    }
+}
+
+/* Navigation links */
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    color: white;
+    background-color: #1a56db;
+}
+
+@media (min-width: 1024px) {
+    .nav-link {
+        padding: 0;
+        border-bottom: none;
+        color: #6b7280;
+    }
+
+    .nav-link:hover {
+        color: #1a56db;
+        background-color: transparent;
+    }
+
+    .nav-link.active {
+        color: #1a56db;
+        background-color: transparent;
+    }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    .site-title {
+        color: white;
+    }
+
+    .nav-link {
+        color: #9ca3af;
+    }
+
+    .nav-link:hover {
+        color: white;
+        background-color: #374151;
+    }
+
+    .nav-link.active {
+        color: white;
+    }
+
+    @media (min-width: 1024px) {
+        .nav-link:hover {
+            background-color: transparent;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.post-card{
+    border: 1px solid var(--light-color);
+    padding: 32px 24px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 32px;
+}
+
+.post-card img{
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.poster{
+    display: flex;
+    grid-template-columns: 70px 1fr;
+    grid-gap: 20px; 
+}
+
+.post-name{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
