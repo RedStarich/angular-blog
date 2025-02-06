@@ -1,7 +1,9 @@
-<div class="post-wrapper">
-    <!-- <app-post *ngFor="let post of posts" [post]="post"></app-post> -->
-     <app-post/>
-     @for(post of posts; track post.id){
-        <app-post [post]="post"></app-post>
-     }
-</div>
+@if(posts){
+   <div class="post-wrapper">
+      @for(post of posts; track post.id){
+         <app-post [post]="post"></app-post>
+      }
+ </div>
+} @else {
+   Loading..
+}
