@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { PostComponent } from '../post/post.component';
-import { PostsComponent } from "../posts/posts.component";
+import { PostsComponent } from "../post-list/posts.component";
 
 @Component({
   selector: 'app-home',
