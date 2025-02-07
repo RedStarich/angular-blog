@@ -15,7 +15,7 @@ export class PostsComponent {
   posts: Post[] = [];
 
   constructor() {
-    this.blogService.getTestBlogData().subscribe((data: Post[]) => {
+    this.blogService.getAllPosts().subscribe((data: Post[]) => {
       this.posts = data;
     });
   }

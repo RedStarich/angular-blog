@@ -1,36 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { Post } from '../data/interfaces/post.interface.'; 
 
-export interface Post {
-  id: number;
-  title: string;
-  slug: string;
-  content: string;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PostService {
-  private posts: Post[] = [
-    {
-      id: 1,
-      title: 'First Post',
-      slug: 'first-post',
-      content: 'Content of first post'
-    }
-  ];
+  private apiUrl = 'assets/blog-data.json'; // JSON-файл с постами
 
-  getPostBySlug(slug: string): Observable<Post | undefined> {
-    return of(this.posts.find(post => post.slug === slug));
+  constructor(private http: HttpClient) {}
+
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl);
   }
 
-  // Utility function to generate slugs
-  generateSlug(title: string): string {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, '') // Remove invalid chars
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(/-+/g, '-'); // Replace multiple - with single -
+  getPostBySlug(slug: string): Observable<Post | undefined> {
+    return this.getPosts().pipe(
+      map(posts => posts.find(post => post.id === slug)) // Ищем пост по slug
+    );
   }
 }

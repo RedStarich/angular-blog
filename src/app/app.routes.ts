@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'login', component: LoginPageComponent},
     {path: 'chatbot', component: ChatbotComponent},
     {path: 'posts', component: PostListPageComponent},
-    {path: 'post/:slug', component: PostPageComponent},
+    {path: 'posts/:slug', component: PostPageComponent},
 ];
 
 @NgModule({

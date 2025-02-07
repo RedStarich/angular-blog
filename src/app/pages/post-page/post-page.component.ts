@@ -1,29 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { BlogDataService } from '../../data/services/blog-data.service';
+import { Post } from '../../data/interfaces/post.interface.';
+import { PostComponent } from '../../post-card/post.component'; // Импортируем компонент
 
 @Component({
   selector: 'app-post-page',
   standalone: true,
-  imports: [RouterLink],
+  imports: [PostComponent], // Добавляем в imports
   templateUrl: './post-page.component.html',
-  styleUrl: './post-page.component.scss',
+  styleUrls: ['./post-page.component.scss']
 })
 export class PostPageComponent implements OnInit {
-  slug: string = '';
+  post!: Post;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private blogService: BlogDataService
+  ) {}
 
-  ngOnInit() {
-    // Get the slug from the route parameters
-    this.route.params.subscribe(params => {
-      this.slug = params['slug'];
-      // Here you can fetch post data using the slug
-      this.loadPost();
-    });
-  }
+  ngOnInit(): void {
+    const slug = this.route.snapshot.paramMap.get('slug');
+    console.log("Slug из URL:", slug); // Отладка
 
-  private loadPost() {
-    // Add your logic to fetch post data using the slug
-    console.log('Loading post with slug:', this.slug);
+    if (slug) {
+      this.blogService.getPostBySlug(slug).subscribe(
+        (data) => {
+          if (data) {
+            this.post = data;
+          } else {
+            console.error("Пост не найден");
+          }
+        },
+        (error) => console.error("Ошибка загрузки поста", error)
+      );
+    }
   }
 }
