@@ -1,0 +1,5 @@
+<div class="post-wrapper">
+   @for(comment of comments; track comment.id){
+   <app-comment-card [comment]="comment"></app-comment-card>
+   }
+</div>

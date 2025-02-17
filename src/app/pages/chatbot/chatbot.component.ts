@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { GeminiService } from '../../data/services/gemini.service';
+import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-chatbot',
@@ -8,5 +12,6 @@ import { Component } from '@angular/core';
   styleUrl: './chatbot.component.scss'
 })
 export class ChatbotComponent {
-
+  userInput: string = '';
+  geminiResponse: string = '';
 }

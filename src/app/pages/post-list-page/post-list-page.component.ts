@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostsComponent } from '../../post-list/posts.component';
+import { PostsComponent } from '../../components-ui/post-list/posts.component';
 @Component({
   selector: 'app-post-list-page',
   standalone: true,

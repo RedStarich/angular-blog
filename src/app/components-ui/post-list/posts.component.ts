@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PostComponent } from "../post-card/post.component";
-import { BlogDataService } from '../data/services/blog-data.service';
-import { Post } from '../data/interfaces/post.interface.';
+import { BlogDataService } from '../../data/services/blog-data.service';
+import { Post } from '../../data/interfaces/post.interface.';
 
 @Component({
   selector: 'app-posts',

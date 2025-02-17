@@ -1,0 +1,24 @@
+.comment-card {
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+
+        .author {
+            font-weight: bold;
+        }
+
+        .date {
+            color: #666;
+        }
+    }
+
+    .content {
+        line-height: 1.5;
+    }
+}
