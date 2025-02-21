@@ -8,7 +8,7 @@ import { Observable, map } from 'rxjs';
 export class GeminiService {
   
   http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/gemini'; // Backend URL
+  private apiUrl = 'https://wrosite-backend.onrender.com/api/gemini'; // Backend URL
 
   getGeminiResponse(prompt: string): Observable<string> {
     const requestBody = {
