@@ -15,12 +15,15 @@ export class ChatbotComponent {
   userInput: string = '';
   geminiResponse: string = '';
   constructor(private geminiService: GeminiService) {}
+  isLoading: boolean = false;
 
   async sendMessage() {
     if (this.userInput.trim()) {
+      this.isLoading = true;
       this.geminiService.getGeminiResponse(this.userInput).subscribe(response => {
         this.geminiResponse = response;
         this.userInput = '';
+        this.isLoading = false;
       });
     }
   }
