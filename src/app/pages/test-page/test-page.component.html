@@ -1,0 +1,12 @@
+<h2>Список постов</h2>
+
+<div *ngIf="posts.length; else loading">
+    <div *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+
+    </div>
+</div>
+
+<ng-template #loading>
+    <p>Загрузка постов...</p>
+</ng-template>

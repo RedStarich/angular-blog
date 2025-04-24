@@ -1,7 +1,8 @@
 @if(post){
 <div>
-    <p>{{post.id}}</p>
+    <div class="post">
     <app-post [post]="post"></app-post>
+    </div>
     @if(comments && comments.length > 0){
     <app-comment-section [comments]="comments"></app-comment-section>
     } @else {

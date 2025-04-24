@@ -6,6 +6,8 @@ import { PostListPageComponent } from './pages/post-list-page/post-list-page.com
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PostPageComponent } from './pages/post-page/post-page.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 
 export const routes: Routes = [
@@ -14,6 +16,8 @@ export const routes: Routes = [
     {path: 'chatbot', component: ChatbotComponent},
     {path: 'posts', component: PostListPageComponent},
     {path: 'posts/:slug', component: PostPageComponent},
+    { path: 'test', component: TestPageComponent }, 
+    {path: 'signup', component: SignupPageComponent },
 ];
 
 @NgModule({

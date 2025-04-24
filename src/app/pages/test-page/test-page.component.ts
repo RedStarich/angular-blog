@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { PostComponent } from "../../components-ui/post-card/post.component";
 import { Post } from '../../data/interfaces/post.interface.';
-import { PostsComponent } from '../../components-ui/post-list/posts.component';
 
 @Component({
-  selector: 'app-post-list-page',
+  selector: 'app-test-page',
   standalone: true,
-  imports: [PostsComponent],
-  templateUrl: './post-list-page.component.html',
-  styleUrl: './post-list-page.component.scss'
+  imports: [CommonModule, PostComponent],
+  templateUrl: './test-page.component.html',
+  styleUrls: ['./test-page.component.scss']
 })
-
-export class PostListPageComponent {
+export class TestPageComponent {
   private http = inject(HttpClient);
   posts: any[] = [];
 
